@@ -1,0 +1,16 @@
+.thumbnail {
+  width: 26px !important;
+  border-radius: 2px;
+  }
+.thumbnail .icon-placeholder-image{
+  font-size: 24px;
+}
+.searchIcon{
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  fill: #93a2b4;
+}

@@ -1,0 +1,12 @@
+.tile{
+  display: flex;
+  gap: 12px;
+  align-self: stretch;
+  align-items: flex-start;
+  .centered{
+    align-items: center;
+  }
+  .tile_content{
+    flex-grow: 1;
+  }
+}

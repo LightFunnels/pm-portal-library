@@ -1,0 +1,98 @@
+.switch {
+  cursor: pointer;
+  color: #191E24;
+  font: 400 14px/16px "Lato";
+  letter-spacing: 0.01em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.reversed{
+  flex-direction: row-reverse;
+}
+
+.switch.disabled {
+  opacity: 0.5;
+}
+
+.switch.disabled, .switch.disabled * {
+  pointer-events: none;
+}
+
+.switch .switch-label {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.bar {
+  display: inline-block;
+  vertical-align: middle;
+  height: 20px;
+  width: 38px;
+  position: relative;
+}
+
+.switch .bar:before {
+  position: absolute;
+  content: "";
+  width: 38px;
+  height: 20px;
+  display: block;
+  background: #E6EAEF;
+  border-radius: 10px;
+  left: 0;
+}
+
+.switch .bar, .switch .bar:after, .switch .bar:before {
+  transition: 0.1s;
+}
+
+.switch .bar:after {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  content: "";
+  width: 14px;
+  height: 14px;
+  background: #fff;
+  display: block;
+  border-radius: 50%;
+  box-shadow: 0px 0px 5px rgba(32, 32, 35, 0.1);
+}
+
+.switch .checkbox {
+  display: none;
+}
+
+.switch .checkbox:checked + .bar:before {
+  background: #0085FF;
+}
+
+.switch .checkbox:checked + .bar:after {
+  left: 21px;
+}
+
+.switch.small .bar {
+  max-width: 30px;
+  height: 16px;
+}
+
+.switch.small .bar:before {
+  max-width: 30px;
+  height: 16px;
+}
+
+.switch.small .bar:after {
+  width: 10px;
+  height: 10px;
+}
+
+.switch.small .checkbox:checked + .bar:after {
+  left: 17px;
+}
+
+.switchLabel{
+  font-size: 13px;
+  line-height: 16px;
+  color: #191E24;
+}

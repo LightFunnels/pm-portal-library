@@ -1,0 +1,158 @@
+.button {
+  padding: 0 16px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  font-size: 14px;
+  outline: none;
+  text-decoration-line: none;
+  transition: all cubic-bezier(0.4, 0, 0.2, 1) 150ms;
+  cursor: pointer;
+  text-align: center;
+  gap: 8px;
+  &[disabled] {
+    pointer-events: none;
+  }
+  &:not(.small),
+  &:not(.medium) {
+    min-height: 36px;
+  }
+  &:not(.primary),
+  &:not(.tertiary),
+  &:not(.danger),
+  &:not(.link) {
+    background-color: white;
+    border: 1px solid #abb6c4;
+    box-shadow: 0 1px 4px rgba(9, 39, 83, 0.12);
+    &:hover {
+      background-color: #f4f4f4;
+      border-color: #7b8da3;
+    }
+    &[disabled],
+    &.disabled {
+      opacity: 50%;
+    }
+    &.active {
+      box-shadow: 0 0px 0px 4px rgba(195, 207, 218, 1);
+    }
+  }
+  &.small {
+    min-height: 32px;
+  }
+  &.medium {
+    min-height: 40px;
+  }
+  &.onCard {
+    &:hover {
+      background-color: #f8f8f8;
+    }
+    &:active {
+      background-color: #f4f4f4;
+    }
+  }
+  &.primary {
+    background-color: #0085ff;
+    color: #fff;
+    border: 1px solid #0075ff;
+    box-shadow: 0 1px 4px rgba(9, 39, 83, 0.12),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+    &.disabled,
+    &[disabled] {
+      opacity: 30%;
+    }
+    &:hover {
+      background-color: #0061f4;
+    }
+  }
+  &.tertiary {
+    background-color: rgb(0 117 255 / 0.1);
+    color: #0061f4;
+    &:hover {
+      background-color: rgb(0 117 255 / 0.15);
+    }
+    &:active {
+      background-color: rgb(0 117 255 / 0.2);
+    }
+  }
+  &.link {
+    background-color: transparent;
+    border: none;
+    color: #0061f4;
+  }
+  &.centered {
+    display: block;
+    margin: 0 auto;
+  }
+  &.highlighted_danger {
+    color: #ff5a5a;
+    background-color: rgb(255 90 90 / 0.2);
+  }
+  &.danger {
+    background-color: #ff4949;
+    color: white;
+    border: 1px solid #ff4949;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.3) inset,
+      0 1px 4px 0 rgba(9, 39, 83, 0.12);
+    &:hover {
+      background-color: #f03a3a;
+    }
+    &:active {
+      background-color: #f03a3a;
+    }
+    &.disabled,
+    &[disabled] {
+      opacity: 30%;
+    }
+  }
+  &.block {
+    align-self: stretch;
+  }
+  &.spinning {
+    color: transparent;
+    pointer-events: none;
+    position: relative;
+    &:not(.dark_spinner) {
+      &:after {
+        border-color: #fff;
+      }
+    }
+    &.dark_spinner {
+      &:after {
+        border-color: #191E24;
+      }
+      &:before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(255,255,255,0.8);
+        border-radius: inherit;
+      }
+    }
+    &:after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      height: 14px;
+      width: 14px;
+      border: 2px solid;
+      border-right-color: transparent !important;
+      border-top-color: transparent !important;
+      border-radius: 50%;
+      animation: 500ms spinning infinite linear;
+      margin-left: -9px;
+      margin-top: -9px;
+    }
+  }
+}
+
+@keyframes spinning {
+  from {
+    transform: rotateZ(0);
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
+}

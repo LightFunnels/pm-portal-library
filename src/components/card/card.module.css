@@ -1,0 +1,40 @@
+.card{
+  max-width: 592px;
+  width: 100%;
+  border-radius: 12px;
+  border: 2px solid rgba(0,117,255,0.20);
+  background-color: #F7FAFC;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  .header{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between ;
+  }
+  .title_wrapper{
+    display: flex;
+    align-items: center;
+    gap: 12px
+  }
+  .image{
+    object-fit: contain;
+    border-radius: 12px;
+    width: 30px;
+    height: 30px;
+    border: 1àx solid #e6eaef;
+  }
+  .title{
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18px;
+    color: #191e24;
+  }
+  .paragraph{
+    font-size: 14px;
+    line-height: 20px;
+    color: #596B81;
+  }
+}

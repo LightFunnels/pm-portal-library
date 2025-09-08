@@ -1,0 +1,177 @@
+.menu {
+  z-index: 20;
+  position: absolute;
+  z-index: 10;
+  cursor: pointer;
+  overflow: hidden;
+  border: 1px solid #d9dfe8;
+  max-height: min(calc(100vh - 16px),260px);
+  min-height: 0.625rem;
+  background-color: white;
+  border-radius: 8px;
+  max-width: 100vw;
+  margin: 8px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 2px 20px rgba(32,32,35,0.13);
+}
+
+.menu.disabled {
+  opacity: 0.6;
+}
+
+.menu .loading {
+  padding: 8px 10px;
+  font: 400 13px/16px "Lato";
+  color: #0085FF;
+}
+
+.menu .emptySearch {
+  height: 102px;
+  cursor: default;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+}
+
+.menu .emptySearch .iconContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 46px;
+  width: 46px;
+  border-radius: 46px;
+  background: hsla(214, 24%, 97%, 1);
+  margin-bottom: 8px;
+}
+
+.menu .emptySearch .iconContainer i {
+  font-size: 18px;
+  color: #93A2B4;
+}
+
+.menu .emptySearch .emptySearchText {
+  font: 400 13px/1.5 "Lato";
+  color: #647990;
+}
+
+.menu .inputContainer {
+  position: sticky;
+}
+
+.menu .inputContainer .icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: #93A2B4;
+}
+
+.menu .inputContainer .input {
+  border: none;
+  box-shadow: none;
+  outline: none;
+  border-bottom: 1px solid #D3DAE4;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  width: 100%;
+  padding: 9px 9px 9px 36px;
+  height: 36px;
+  color: #191E24;
+  font: 400 13px/1 "Lato";
+}
+
+.menu .inputContainer .input::placeholder {
+  color: #7B8DA3;
+  font: 400 13px/16px "Lato";
+}
+
+.menu .selectItemsContainer {
+  padding: 4px 0;
+  overflow: auto;
+  flex-grow: 1;
+}
+
+.menu .selectItemsContainer .tile-content span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.menu .option {
+  color: #191E24;
+  font: 13px/16px "Lato";
+  padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  cursor: pointer;
+  height: 34px;
+}
+
+.menu .option.selectedOption {
+  background: rgba(0, 119, 255, 0.1);
+  color: #0075FF;
+}
+
+.menu .option .thumbnail {
+  width: 26px !important;
+  border-radius: 2px;
+}
+
+.menu .option .thumbnail .icon-placeholder-image {
+  font-size: 24px;
+}
+
+.menu .option:hover:not(.selectedOption) {
+  background: #F8F8F8;
+}
+
+.menu .option.checked {
+  background: rgba(0, 119, 255, 0.1);
+  color: #0062F5;
+  cursor: pointer;
+}
+
+.menu .option.checked:hover {
+  background: rgba(0, 119, 255, 0.1);
+  color: #0062F5;
+  cursor: pointer;
+}
+
+.menu:not(.grouped) .option:not(:last-child) {
+  margin-bottom: 4px;
+}
+
+.menu.grouped .group {
+  color: #191E24;
+}
+
+.menu.grouped .group .groupLabel {
+  display: flex;
+  padding: 0 10px;
+  height: 34px;
+  align-items: center;
+}
+
+.menu.grouped .group .groupLabel i {
+  font-size: 18px;
+  margin-right: 6px;
+}
+
+.menu.grouped .group .groupLabel .groupLabelText {
+  font: 13px/16px "Lato";
+}
+
+.menu.grouped .group .row:hover {
+  background: #F8F8F8;
+}
+
+.menu.grouped .group .options .option {
+  padding-left: 33px;
+}

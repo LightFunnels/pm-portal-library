@@ -1,0 +1,101 @@
+.selectLabel{
+  width: 100%;
+  position: relative;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: white;
+  border-radius: 8px;
+  border: solid 1px #d3dae4;
+  align-self: stretch;
+  transition: all cubic-bezier(0.4, 0, 0.2, 1) 100ms;
+  box-shadow: 0px 1px 3px 0px rgba(25,30,36,0.08);
+  cursor: pointer;
+  height: 36px;
+  &:hover{
+    background-color: #FAFAFA;
+  }
+  &.hasError{
+    border-color: #ff4949;
+    box-sizing: 0 0 0 1px #ff4949;
+  }
+  &.active{
+    background-color: #FAFAFA;
+    border-color: #c3cbd5;
+  }
+  &.disabled{
+    opacity: 60%;
+    pointer-events: none;
+  }
+  &.outOfCard{
+    background-color: transparent;
+    border-color: #c3cbd5;
+  }
+  &.medium{
+    height: 32px;
+  }
+  .avatar_wrapper{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    z-index: 1;
+    .avatar{
+      margin-left: -5px;
+      max-width: 26px;
+      max-height: 26px;
+    }
+  }
+  .label{
+    font-size: 14px;
+    color: #191e24;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex: 1 1 0%;
+    flex-basis: 0px;
+    flex-shrink: 0;
+    .label_medium{
+      font-size: 12px;
+    }
+  }
+  &:hover{
+    .arrowIcon{
+      path{
+        fill: #191E24;
+      }
+    }
+  }
+}
+.arrowIcon{
+  margin-left: auto;
+  width: 20px;
+  height: 20px;
+    path{
+      fill: #7b8da3;
+    }
+  &.medium{
+    height: 16px;
+    width: 16px;
+  }
+}
+.closeIcon{
+  width: 20px;
+  height: 20px;
+  margin-left: auto;
+  z-index: 1;
+  path{
+    fill: #7b8da3
+  }
+  &:hover{
+    path{
+      fill: #191e24;
+    }
+  }
+  &.medium{
+    width: 16px;
+    height: 16px;
+  }
+}
