@@ -1,10 +1,38 @@
 {
   "name": "@omarikos/pm-library-portal",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "publishConfig": { "access": "public" },
+  "description": "Payment portal library - Simple UI components.",
+  "homepage": "https://github.com/LightFunnels/pm-portal-library#readme",
+  "bugs": { "url": "https://github.com/LightFunnels/pm-portal-library/issues" },
+  "repository": { "type": "git", "url": "git+https://github.com/LightFunnels/pm-portal-library.git" },
+  "license": "ISC",
+
+  "main": "dist/pm-portal-library.cjs.js",
+  "module": "dist/pm-portal-library.es.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/pm-portal-library.cjs.js",
+      "import": "./dist/pm-portal-library.es.js",
+      "default": "./dist/pm-portal-library.es.js"
+    }
+  },
+  "files": ["dist"],
+  "sideEffects": ["**/*.css"],
+  "style": "dist/pm-portal-library.css",
+
   "scripts": {
-    "serve": "vite",
-    "build": "vite build"
+    "dev": "vite",
+    "build": "vite build && tsc -p tsconfig.build.json --emitDeclarationOnly",
+    "prepublishOnly": "npm run build"
+  },
+
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.8",
@@ -12,19 +40,14 @@
     "clsx": "^2.0.0",
     "dateformat": "^5.0.3",
     "lucide-react": "^0.294.0",
-    "react": "^18",
-    "react-datepicker": "^4.24.0",
-    "react-dom": "^18"
+    "react-datepicker": "^4.24.0"
   },
   "devDependencies": {
-    "@vitejs/plugin-react": "^4.0.4",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@vitejs/plugin-react": "^4.0.4",
     "typescript": "^5",
-    "vite": "^4.4.9",
-    "vite-plugin-externalize-deps": "^0.8.0",
-    "vite-plugin-pwa": "^0.16.5",
-    "vite-plugin-relay": "^2.0.0"
+    "vite": "^4.4.9"
   }
 }

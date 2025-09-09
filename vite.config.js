@@ -15,4 +15,17 @@ export default defineConfig({
 		hmr: false,
 		port: 9002
 	},
+  build: {
+    rollupOptions: {
+      // don’t bundle react into your lib
+      external: ['react', 'react-dom'],
+      output: {
+        globals: { react: 'React', 'react-dom': 'ReactDOM' },
+        assetFileNames: (asset) =>
+          asset.name === 'style.css' ? 'pm-portal-library.css' : asset.name,
+      },
+    },
+    minify: true,
+    sourcemap: true,
+  }
 });
