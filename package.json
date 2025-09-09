@@ -1,14 +1,20 @@
 {
   "name": "@omarikos/pm-library-portal",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": false,
-  "publishConfig": { "access": "public" },
+  "publishConfig": {
+    "access": "public"
+  },
   "description": "Payment portal library - Simple UI components.",
   "homepage": "https://github.com/LightFunnels/pm-portal-library#readme",
-  "bugs": { "url": "https://github.com/LightFunnels/pm-portal-library/issues" },
-  "repository": { "type": "git", "url": "git+https://github.com/LightFunnels/pm-portal-library.git" },
+  "bugs": {
+    "url": "https://github.com/LightFunnels/pm-portal-library/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LightFunnels/pm-portal-library.git"
+  },
   "license": "ISC",
-
   "main": "dist/pm-portal-library.cjs.js",
   "module": "dist/pm-portal-library.es.js",
   "types": "dist/index.d.ts",
@@ -20,16 +26,18 @@
       "default": "./dist/pm-portal-library.es.js"
     }
   },
-  "files": ["dist"],
-  "sideEffects": ["**/*.css"],
+  "files": [
+    "dist"
+  ],
+  "sideEffects": [
+    "**/*.css"
+  ],
   "style": "dist/pm-portal-library.css",
-
   "scripts": {
     "dev": "vite",
     "build": "vite build && tsc -p tsconfig.build.json --emitDeclarationOnly",
     "prepublishOnly": "npm run build"
   },
-
   "peerDependencies": {
     "react": ">=18",
     "react-dom": ">=18"
