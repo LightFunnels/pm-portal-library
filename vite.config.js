@@ -1,31 +1,32 @@
-import react from '@vitejs/plugin-react';
-import path from "path";
-import { defineConfig } from 'vite';
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import path from 'path'
 
 export default defineConfig({
-	plugins: [
-		react()
-	],
-	resolve: {
-    alias: {
-      '@': path.resolve(__dirname, 'src')
-    }
-	},
-	server: {
-		hmr: false,
-		port: 9002
-	},
+  plugins: [react()],
+  resolve: {
+    alias: { '@': path.resolve(__dirname, 'src') }
+  },
   build: {
+    lib: {
+      entry: path.resolve(__dirname, 'src/index.ts'),
+      name: 'PmPortalLibrary',
+      fileName: (format) => `pm-portal-library.${format}.js`,
+      formats: ['es', 'cjs'],
+    },
     rollupOptions: {
-      // don’t bundle react into your lib
       external: ['react', 'react-dom'],
       output: {
-        globals: { react: 'React', 'react-dom': 'ReactDOM' },
-        assetFileNames: (asset) =>
-          asset.name === 'style.css' ? 'pm-portal-library.css' : asset.name,
-      },
-    },
-    minify: true,
-    sourcemap: true,
+        globals: {
+          react: 'React',
+          'react-dom': 'ReactDOM'
+        },
+        assetFileNames: (assetInfo) => {
+          // put css into a predictable file
+          if (assetInfo.name === 'style.css') return 'pm-portal-library.css'
+          return assetInfo.name
+        }
+      }
+    }
   }
-});
+})
