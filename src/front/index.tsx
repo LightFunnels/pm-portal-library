@@ -6,7 +6,8 @@ import {
   FormGroup,
   SelectComponent,
   SwitchComponent,
-} from "./index";
+} from "@/components";
+import { createRoot } from "react-dom/client";
 
 export default function App() {
   const [selectValue, setSelectValue] = React.useState<string>("0");
@@ -127,3 +128,4 @@ export default function App() {
 }
 
 
+createRoot(document.getElementById('app')).render(<App />)
