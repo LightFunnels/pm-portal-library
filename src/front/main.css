@@ -1,0 +1,111 @@
+/* --- Layout / page --- */
+.app {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #F8FAFC 0%, #EFF6FF 50%, #E0E7FF 100%); /* slate-50 → blue-50 → indigo-100 */
+}
+
+.wrap {
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;  /* px-6 */
+  padding-right: 1.5rem;
+  padding-top: 3rem;     /* py-12 */
+  padding-bottom: 3rem;
+}
+
+/* --- Header --- */
+.header {
+  text-align: center;
+  margin-bottom: 3rem; /* mb-12 */
+}
+
+.h1 {
+  font-size: 2.25rem;   /* text-4xl */
+  line-height: 2.5rem;
+  font-weight: 700;     /* font-bold */
+  color: #111827;       /* gray-900 */
+  margin-bottom: 1rem;  /* mb-4 */
+}
+
+/* --- Grid --- */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr; /* grid-cols-1 */
+  gap: 2rem; /* gap-8 */
+}
+
+@media (min-width: 1024px) { /* lg */
+  .grid {
+    grid-template-columns: 1fr 1fr; /* lg:grid-cols-2 */
+  }
+}
+
+/* --- Vertical stacks (space-y-*) --- */
+.stack-8 > * + * { margin-top: 2rem; } /* space-y-8 */
+.stack-6 > * + * { margin-top: 1.5rem; } /* space-y-6 */
+
+/* --- Card --- */
+.card {
+  background: #ffffff;
+  border: 1px solid #E5E7EB; /* gray-200 */
+  border-radius: 1rem;       /* rounded-2xl */
+  padding: 2rem;             /* p-8 */
+  box-shadow: 0 1px 3px 0 rgba(25,30,36,0.08); /* custom shadow */
+  transition: all 300ms ease; /* transition-all duration-300 */
+}
+.card:hover {
+  /* shadow-xl approximation */
+  box-shadow:
+    0 20px 25px -5px rgba(0,0,0,0.1),
+    0 8px 10px -6px rgba(0,0,0,0.1);
+}
+
+.card-title {
+  font-size: 1.5rem;     /* text-2xl */
+  line-height: 2rem;
+  font-weight: 600;      /* font-semibold */
+  color: #1F2937;        /* gray-800 */
+  margin-bottom: 1.5rem; /* mb-6 */
+  padding-bottom: 0.75rem; /* pb-3 */
+  border-bottom: 1px solid #F3F4F6; /* border-gray-100 */
+}
+
+/* --- Sections inside cards --- */
+.section {
+  background: #F9FAFB;    /* gray-50 */
+  border-radius: 0.75rem; /* rounded-xl */
+  padding: 1.5rem;        /* p-6 */
+  transition: background-color 150ms ease; /* transition-colors */
+}
+.section:hover {
+  background: #F3F4F6;    /* hover:bg-gray-100 */
+}
+
+/* --- Labels --- */
+.label {
+  display: block;
+  font-size: 0.875rem;    /* text-sm */
+  line-height: 1.25rem;
+  font-weight: 500;       /* font-medium */
+  color: #374151;         /* gray-700 */
+  margin-bottom: 0.75rem; /* mb-3 */
+}
+
+/* --- Button grid --- */
+.btn-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* grid-cols-1 */
+  gap: 1rem; /* gap-4 */
+}
+
+/* Optional: smooth focus outlines */
+:focus-visible {
+  outline: 3px solid rgba(99,102,241,0.5); /* indigo-ish */
+  outline-offset: 2px;
+}
+
+
+.pm-card{
+  max-width: 200px;
+}

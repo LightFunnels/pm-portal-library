@@ -1,0 +1,23 @@
+spinning{
+  &, &:after {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  color: #91959A;
+  &:after {
+    border-radius: 50%;
+    content: "";
+    width: 10px;
+    height: 10px;
+    border: 2px solid;
+    border-left-color: transparent!important;
+    border-top-color: transparent!important;
+    animation: 500ms spinning infinite linear;
+  }
+  &.medium{
+    &:after {
+      width: 15px;
+      height: 15px;
+    }
+  }
+}

@@ -1,41 +1,31 @@
 {
   "name": "@omarikos/pm-library-portal",
-  "version": "0.1.2",
+  "version": "0.1.15",
   "private": false,
-  "publishConfig": {
-    "access": "public"
-  },
-  "description": "Payment portal library - Simple UI components.",
-  "homepage": "https://github.com/LightFunnels/pm-portal-library#readme",
-  "bugs": {
-    "url": "https://github.com/LightFunnels/pm-portal-library/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/LightFunnels/pm-portal-library.git"
-  },
-  "license": "ISC",
+  "type": "module",
   "main": "dist/pm-portal-library.cjs.js",
   "module": "dist/pm-portal-library.es.js",
   "types": "dist/index.d.ts",
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "require": "./dist/pm-portal-library.cjs.js",
-      "import": "./dist/pm-portal-library.es.js",
-      "default": "./dist/pm-portal-library.es.js"
-    }
-  },
   "files": [
     "dist"
   ],
   "sideEffects": [
     "**/*.css"
   ],
-  "style": "dist/pm-portal-library.css",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/pm-portal-library.es.js",
+      "require": "./dist/pm-portal-library.cjs.js"
+    },
+    "./style.css": "./dist/pm-library-portal.css"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "dev": "vite",
-    "build": "vite build && tsc -p tsconfig.build.json --emitDeclarationOnly",
+    "build": "vite build",
     "prepublishOnly": "npm run build"
   },
   "peerDependencies": {
@@ -43,19 +33,6 @@
     "react-dom": ">=18"
   },
   "dependencies": {
-    "@popperjs/core": "^2.11.8",
-    "class-variance-authority": "^0.7.0",
-    "clsx": "^2.0.0",
-    "dateformat": "^5.0.3",
-    "lucide-react": "^0.294.0",
-    "react-datepicker": "^4.24.0"
-  },
-  "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "@vitejs/plugin-react": "^4.0.4",
-    "typescript": "^5",
-    "vite": "^4.4.9"
+    "@popperjs/core": "^2.11.8"
   }
 }

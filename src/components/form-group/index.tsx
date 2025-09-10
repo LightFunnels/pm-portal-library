@@ -23,7 +23,7 @@ export const FormGroup = React.forwardRef<HTMLDivElement, FormGroupProps>(({ lab
 type LabelProps = {
 	light?: boolean
 	className?: string
-	children: React.ReactNode
+	children?: React.ReactNode
 	action?: React.ReactNode
 }
 

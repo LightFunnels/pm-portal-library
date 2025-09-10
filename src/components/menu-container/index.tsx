@@ -12,7 +12,7 @@ export const MenuContainer = React.forwardRef<HTMLDivElement, { onClick?: (ev: a
           className={styles.menu + " "+ (props.className || '')} >
           {props.children}
         </div>,
-        (window as any).modals
+        document.querySelector("#modals")
       )
 		)
 	}

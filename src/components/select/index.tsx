@@ -80,6 +80,18 @@ export const SelectComponent = React.forwardRef<HTMLDivElement, SelectComponentP
 
 	const [target, setTarget] = React.useState<{ element: HTMLDivElement; message: React.ReactNode } | null>(null);
 
+   React.useEffect(() => {
+
+      let el = document.getElementById("modals");
+
+      if (!el) {
+        el = document.createElement("div");
+        el.id = "modals";
+        document.body.appendChild(el);
+      }
+    }, []);
+
+
 	return (
 		<div className={`${styles.select} ${className ?? ''}`} ref={_ref}>
 			{props.customLabel ? (
@@ -188,3 +200,82 @@ export const SelectComponent = React.forwardRef<HTMLDivElement, SelectComponentP
 		</div>
 	);
 });
+
+type UsePopover = {disabled?: boolean, delay?: number, keepDelay?: number, ref?: React.MutableRefObject<HTMLElement|null>, showTemporary?: number};
+
+export function usePopover(opts: UsePopover = {disabled: false, delay: 0, keepDelay: 0, ref: undefined, showTemporary:0 }): [React.MutableRefObject<any>, boolean] {
+
+	const targetRef = React.useRef<HTMLElement>();
+	const [show, setShow] = React.useState(false);
+	const ref = React.useRef<any>({});
+
+	React.useLayoutEffect(
+		function () {
+			if(opts.disabled){
+				return;
+			}
+      let t: number | undefined;
+			if(opts.showTemporary){
+				setShow(true);
+				t = window.setTimeout(()=>{
+					setShow(false);
+				},opts.showTemporary)
+			}
+			function mouseover(event) {
+				ref.current.status = 'over';
+				setTimeout(
+					function () {
+						if(ref.current.status !== 'left'){
+							setShow(true);
+						}
+					},
+					opts.delay || 0
+				);
+			}
+			function mouseleave(event) {
+				Promise.race([
+					opts.ref && opts.ref.current ?
+					new Promise(function(resolve){
+						opts.ref!.current!.addEventListener('mouseenter', function (){
+							resolve(true);
+						}, {once: true});
+					}) : Promise.resolve(false),
+					new Promise(function(resolve){
+						setTimeout(() => (resolve(false)), opts.keepDelay);
+					})
+				])
+				.then(
+					function(e){
+						function close(){
+							setShow(false);
+							ref.current.status = 'left';
+						}
+						if(e === true){
+							opts.ref!.current!.addEventListener('mouseleave', close, {once: true})
+						} else {
+							close();
+						}
+					}
+				);
+			}
+			// if(!targetRef.current){
+			// 	captureException('Popover error');
+			// 	return;
+			// }
+			targetRef.current!.addEventListener('mouseover', mouseover);
+			targetRef.current!.addEventListener('mouseleave', mouseleave);
+			return () => {
+				if(!targetRef.current){
+					// still fixing this
+					return;
+				}
+				clearTimeout(t);
+				targetRef.current!.removeEventListener('mouseover', mouseover);
+				targetRef.current!.removeEventListener('mouseleave', mouseleave);
+			}
+		},
+		[opts.disabled]
+	);
+
+	return [targetRef, show];
+}

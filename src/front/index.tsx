@@ -1,36 +1,39 @@
-import React from "react";
+import React, { Fragment } from "react";
 import {
   Button,
   Card,
   CheckboxComponent,
   FormGroup,
   SelectComponent,
+  SubPaymentCard,
   SwitchComponent,
 } from "@/components";
 import { createRoot } from "react-dom/client";
+import "../styles/global.css";
+import "./main.css"
 
 export default function App() {
   const [selectValue, setSelectValue] = React.useState<string>("0");
   const [checkboxValue, setCheckboxValue] = React.useState<boolean>(false);
   const [switchValue, setSwitchValue] = React.useState<boolean>(false);
-  return (
 
-  <div className=" bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
-      <div className="max-w-[1100px] mx-auto px-6 py-12">
+  return (
+    <div className="app">
+      <div className="wrap">
         {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Payment portal components</h1>
+        <div className="header">
+          <h1 className="h1">Payment portal components</h1>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid">
           {/* Form Controls Section */}
-          <div className="space-y-8">
-            <div className="bg-white  shadow-[0px_1px_3px_0px_rgba(25,30,36,0.08)]  rounded-2xl  border border-gray-200 p-8 hover:shadow-xl transition-all duration-300">
-              <h2 className="text-2xl font-semibold text-gray-800 mb-6 pb-3 border-b border-gray-100">Form Controls</h2>
-              
-              <div className="space-y-6">
-                <div className="bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition-colors">
-                  <label className="block text-sm font-medium text-gray-700 mb-3">Select Component</label>
+          <div className="stack-8">
+            <div className="card">
+              <h2 className="card-title">Form Controls</h2>
+
+              <div className="stack-6">
+                <div className="section">
+                  <label className="label">Select Component</label>
                   <SelectComponent
                     isSearchable
                     value={selectValue}
@@ -42,8 +45,8 @@ export default function App() {
                   />
                 </div>
 
-                <div className="bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition-colors">
-                  <label className="block text-sm font-medium text-gray-700 mb-3">Checkbox Component</label>
+                <div className="section">
+                  <label className="label">Checkbox Component</label>
                   <CheckboxComponent
                     label="Check it!!!"
                     checked={checkboxValue}
@@ -51,8 +54,8 @@ export default function App() {
                   />
                 </div>
 
-                <div className="bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition-colors">
-                  <label className="block text-sm font-medium text-gray-700 mb-3">Switch Component</label>
+                <div className="section">
+                  <label className="label">Switch Component</label>
                   <SwitchComponent
                     label="Switch me"
                     value={switchValue}
@@ -64,12 +67,12 @@ export default function App() {
           </div>
 
           {/* Buttons & Cards Section */}
-          <div className="space-y-8">
-            <div className="bg-white  shadow-[0px_1px_3px_0px_rgba(25,30,36,0.08)]  rounded-2xl  border border-gray-200 p-8 hover:shadow-xl transition-all duration-300">
-              <h2 className="text-2xl font-semibold text-gray-800 mb-6 pb-3 border-b border-gray-100">Button Components</h2>
-              
-              <div className="bg-gray-50 rounded-xl p-6">
-                <div className="grid grid-cols-1 gap-4 ">
+          <div className="stack-8">
+            <div className="card">
+              <h2 className="card-title">Button Components</h2>
+
+              <div className="section">
+                <div className="btn-grid">
                   <Button primary small block>
                     <span>Primary Button</span>
                   </Button>
@@ -83,42 +86,14 @@ export default function App() {
               </div>
             </div>
 
-            <div className="bg-white  shadow-[0px_1px_3px_0px_rgba(25,30,36,0.08)]  rounded-2xl  border border-gray-200 p-8 hover:shadow-xl transition-all duration-300">
-              <h2 className="text-2xl font-semibold text-gray-800 mb-6 pb-3 border-gray-100 border-b">Card Component</h2>
-              
-              <Card
-                title="Sub-payment Gateway 01"
-                description="Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type."
-                thumbnail="https://app.lightfunnels.com/assets/6d37c7402e6e288ae3b1.png"
-                testModeElement={
-                  <SwitchComponent
-                    label="Test mode"
-                    value={switchValue}
-                    onChange={(e) => setSwitchValue(e.target.checked)}
-                    small
-                  />
-                }
-              >
-                <div className="bg-gray-50 rounded-xl space-y-4">
-                  <CheckboxComponent
-                    label="Add Installment fees"
-                    checked={checkboxValue}
-                    onChange={(e) => setCheckboxValue(e.target.checked)}
-                  />
-                  <FormGroup label="Language" className="w-full">
-                    <SelectComponent
-                      isSearchable
-                      className="w-full"
-                      value={selectValue}
-                      options={[
-                        { value: "0", label: "English" },
-                        { value: "1", label: "Spanish" }
-                      ]}
-                      onChange={(v) => setSelectValue(v)}
-                    />
-                  </FormGroup>
-                </div>
-              </Card>
+            <div>
+              <SubPaymentCard
+                label="Apple pay"
+                onChange={() => {}}
+                value={false}
+                thumbnail="https://app.lightfunnels.com/assets/17e549a22f1083ef8936.png"
+                className={"pm-card"}
+              />
             </div>
           </div>
         </div>
@@ -126,6 +101,7 @@ export default function App() {
     </div>
   );
 }
+
 
 
 createRoot(document.getElementById('app')).render(<App />)
