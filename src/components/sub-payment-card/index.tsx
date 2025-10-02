@@ -37,7 +37,6 @@ export function SubPaymentCard(props: SubPaymentCardProps) {
             <Spinner className={styles.spinner} />
           }
           <SwitchComponent
-            noMaring
             small
             value={props.value}
             // ref={target}
