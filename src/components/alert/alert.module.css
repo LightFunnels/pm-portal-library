@@ -1,0 +1,108 @@
+.alert {
+  padding-top: 0.875rem;  
+  padding-bottom: 0.875rem;
+  padding-left: 1.125rem;  
+  padding-right: 1rem;    
+  display: flex;           
+  gap: 0.625rem;          
+  align-items: flex-start; 
+  align-self: stretch;     
+  border-radius: 0.5rem;   
+}
+
+.iconContentContainer{
+  display: flex;
+  gap: 0.625rem; 
+}
+.alert .iconContainer {
+  color: inherit;
+}
+
+.alert .iconContainer i {
+  font-size: 22px;
+}
+
+.alert .icon-cancel-music {
+  font-size: 18px;
+  cursor: pointer;
+  margin-left: 14px;
+  color: #93A2B4;
+}
+
+.alert .errTitle {
+  font: 500 14px/1 "Lato";
+  margin-bottom: 8px;
+  color: #191E24;
+}
+
+.alert .errText {
+  font: 400 13px/1.4 "Lato";
+  color: #191E24;
+  overflow-wrap: anywhere;
+}
+
+.alert .bottomActionsContainer {
+  margin-top: 10px;
+}
+
+/* Theme variations */
+.alert:not(.theme2) {
+  border-left: 4px solid transparent;
+}
+
+.alert:not(.theme2).rtl {
+  border-left: none;
+  border-right: 4px solid transparent;
+}
+
+.alert:not(.theme2) .textContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Info */
+.alert:not(.theme2).info {
+  background-image: linear-gradient(rgba(0, 117, 255, 0.1), rgba(0, 117, 255, 0.1));
+  border-color: #0085FF;
+}
+
+.alert:not(.theme2).info *:not(.title):not(.errText):not(.icon-cancel-music):not(.only):not(.ignoreAlertColor) {
+  color: #0085FF;
+}
+
+/* Success */
+.alert:not(.theme2).success {
+  background-image: linear-gradient(rgba(79, 187, 135, 0.1), rgba(79, 187, 135, 0.1));
+  border-color: #4FBB87;
+}
+
+.alert:not(.theme2).success *:not(.title):not(.errText):not(.icon-cancel-music):not(.only):not(.ignoreAlertColor) {
+  color: #4FBB87;
+}
+
+/* Warning */
+.alert:not(.theme2).warning {
+  background-image: linear-gradient(rgba(255, 122, 0, 0.1), rgba(255, 122, 0, 0.1));
+  border-color: #ff7a00;
+}
+
+.alert:not(.theme2).warning *:not(.title):not(.errText):not(.icon-cancel-music):not(.ignoreAlertColor) {
+  color: #ff7a00;
+}
+
+/* Error */
+.alert:not(.theme2).error {
+  background-image: linear-gradient(rgba(255, 73, 73, 0.1), rgba(255, 73, 73, 0.1));
+  border-color: #ff4949;
+}
+
+.alert:not(.theme2).error *:not(.title):not(.errText):not(.icon-cancel-music):not(.ignoreAlertColor) {
+  color: #ff4949;
+}
+
+.alert .actionsContainer {
+  align-self: center;
+  white-space: nowrap;
+  margin-left: 18px;
+}

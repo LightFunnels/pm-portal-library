@@ -1,0 +1,117 @@
+.textInputWrapper {
+  width: 100%;
+
+  .w1 {
+    position: relative;
+    max-height: 2.25rem; /* max-h-9 */
+    display: flex;
+    align-items: center;
+    gap: 0.625rem; /* gap-2.5 */
+    padding: 9px 0.625rem; /* py-[9px] px-2.5 */
+    color: #404040; /* text-neutral-700 */
+    border: 1px solid #d4d4d4; /* border border-neutral-300 */
+    border-radius: 8px; /* rounded-lg */
+    background-color: #fff; /* bg-white */
+    box-shadow: 0px 1px 3px 0px rgba(25, 30, 36, 0.08);
+    transition: all 0.15s ease;
+  }
+
+  .w1:hover:not(.hasError):not(:focus-within) {
+    border-color: #a3a3a3; /* hover:border-neutral-400 */
+  }
+
+  .w1:focus-within {
+    border-color: #bfdbfe; /* focus-within:border-blue-200 */
+    box-shadow: 0 0 0 1px #0061f4; /* focus-within:shadow-[0_0_0_1px_#0061f4] */
+    color: #bfdbfe; /* focus-within:text-blue-200 */
+  }
+
+  .w1.hasAdjusters {
+    padding-right: 34px;
+  }
+
+  .w1.h-8 {
+    height: 2rem;
+  }
+
+  .w1.bgAntiFlash {
+    background-color: #f2f3f4;
+  }
+
+  .w1.disabled {
+    pointer-events: none;
+  }
+
+  .w1.hasError {
+    border-color: #ff4949;
+    box-shadow: 0 0 0 1px #ff4949;
+    color: #ff4949;
+  }
+
+  .leftIcon {
+    order: 1;
+    white-space: nowrap;
+    transition: color 0.15s ease;
+  }
+
+  .w1:focus-within .leftIcon {
+    color: #bfdbfe;
+  }
+
+  .w1.hasError:focus-within .leftIcon {
+    color: #ff4949;
+  }
+
+  .textInput {
+    flex: 1 1 0%;
+    order: 2;
+    font-size: 14px;
+    line-height: 1.25rem;
+    width: 100%;
+    color: #111827; /* text-gray-900 */
+    background-color: transparent;
+    border:0;
+    outline: 0;
+  }
+
+  .textInput::placeholder {
+    color: #404040; /* placeholder:text-neutral-700 */
+  }
+
+  .textInput:disabled {
+    background-color: transparent;
+  }
+
+  .textInput.nopointer + i {
+    pointer-events: none;
+  }
+
+  .textInput.hasError ~ .overlay {
+    border-color: #ff4949;
+    box-shadow: 0 0 0 1px #ff4949;
+  }
+
+  .textInput:focus ~ .overlay {
+    border-color: #0085FF;
+    box-shadow: 0 0 0 1px #0085FF;
+  }
+
+  .textInput:focus ~ .leftIcon i,
+  .textInput:focus ~ .icon i {
+    color: #0085FF;
+  }
+
+  .textInput:focus.hasError ~ .leftIcon i,
+  .textInput:focus.hasError ~ .icon i {
+    color: #ff4949;
+  }
+
+  .textInput:focus.hasError ~ .overlay {
+    border-color: #ff4949;
+    box-shadow: 0 0 0 1px #ff4949;
+  }
+
+  .textInput:hover:not(.hasError):not(:focus) ~ .overlay {
+    border-color: #C3CBD5;
+  }
+}
