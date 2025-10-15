@@ -12,4 +12,6 @@ export * from "./select-label";
 export * from "./switch";
 export * from "./tile";
 export * from "./sub-payment-card"
-export * from "./spinner"
+export * from "./spinner";
+export * from "./input";
+export * from "./alert";
