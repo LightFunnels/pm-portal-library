@@ -1,6 +1,6 @@
 {
   "name": "@omarikos/pm-library-portal",
-  "version": "0.1.16",
+  "version": "0.1.17",
   "private": false,
   "type": "module",
   "main": "dist/pm-portal-library.cjs.js",
